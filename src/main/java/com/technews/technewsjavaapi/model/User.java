@@ -1,5 +1,6 @@
 package com.technews.technewsjavaapi.model;
 
+// import all needed packages
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -7,10 +8,12 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+// create new class for User model
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "user")
 public class User implements Serializable {
+    // define table column values
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -21,6 +24,7 @@ public class User implements Serializable {
     @Transient
     boolean loggedIn;
 
+    // define foreign key relationships
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Post> posts;
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -38,6 +42,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    // create getter and setter functions
     public Integer getId(){
         return id;
     }

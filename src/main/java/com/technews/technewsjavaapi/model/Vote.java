@@ -1,6 +1,7 @@
 package com.technews.technewsjavaapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -73,7 +74,7 @@ public class Vote implements Serializable {
         return "Vote{" +
                 "id=" + id +
                 ", userId=" + userId +
-                ", postid=" + postId +
+                ", postId=" + postId +
                 '}';
     }
 }
